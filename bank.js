@@ -140,6 +140,47 @@ console.log("Banner:", banner);
 console.log("Tellers:", tellerWindows);
 
 console.log("-----------------------------");
+// Security and Reports
+function validateBankPassword(password) {
+  let vowels = /[aeiou]/i;
+
+  console.log("Security and Report:");
+
+  if (
+    password.length >= 8 &&
+    !password.toLowerCase().includes("password") &&
+    vowels.test(password)
+  ) {
+    return "Access Granted";
+  }
+
+  return "Access Denied";
+}
+
+function generateYearlyReport(startYear, endYear) {
+  console.log("Yearly Report:");
+  for (let year = startYear; year <= endYear; year++) {
+
+    // Leap year check
+    if (
+      (year % 4 === 0 && year % 100 !== 0) ||
+      year % 400 === 0
+    ) {
+      console.log(`Year ${year} is a special audit year.`);
+    }
+
+    // Every 5 years
+    if (year % 5 === 0) {
+      console.log(`${year} - 5 Year Anniversary`);
+    }
+
+    // Every 10 years
+    if (year % 10 === 0) {
+      console.log(`${year} - Decade Anniversary`);
+    }
+  }
+}
+
 
 
 
