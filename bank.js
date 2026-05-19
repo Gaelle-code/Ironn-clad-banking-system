@@ -60,4 +60,61 @@ atmTransaction("Deposit", 200);
 atmTransaction("Withdrawal", 50);
 atmTransaction("Undo");
 atmTransaction("Fee");
+// Loan App
+function processLoans(scores) {
+  let eligible = scores.filter(score => score > 700);
+
+  let adjustedScores = scores.map(score => score + 20);
+
+  let totalRisk = scores.reduce((sum, score) => sum + score, 0);
+
+  let hasPerfect = scores.some(score => score === 900);
+
+  let allAbove400 = scores.every(score => score >= 400);
+
+  let firstRisk = scores.find(score => score < 500);
+
+  let riskIndex = scores.findIndex(score => score < 500);
+
+  console.log("Loan App:");
+
+  console.log("Eligible:", eligible);
+  console.log("Adjusted:", adjustedScores);
+  console.log("Total Risk:", totalRisk);
+  console.log("Has Perfect:", hasPerfect);
+  console.log("All ≥ 400:", allAbove400);
+  console.log("First Risk:", firstRisk);
+  console.log("Risk Index:", riskIndex);
+
+  console.log("-----------------------------");
+}
+
+processLoans([650, 800, 500, 720, 410, 900]);
+
+
+// Fraud Detection
+let dailyTransactions = [1042, 8922, 3301, 5510, 7719, 9920];
+let fraudID = 5510;
+
+console.log("Fraud Detection:");
+
+if (dailyTransactions.includes(fraudID)) {
+  let index = dailyTransactions.indexOf(fraudID);
+
+  console.log("Fraud found at index:", index);
+
+  let lastThree = dailyTransactions.slice(-3);
+
+  console.log("Last 3 transactions:", lastThree);
+
+  dailyTransactions.splice(index, 1);
+}
+
+dailyTransactions.forEach(id => {
+  console.log(`Transaction ${id} cleared.`);
+});
+
+console.log("-----------------------------");
+
+
 
